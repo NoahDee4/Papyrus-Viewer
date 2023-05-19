@@ -1,0 +1,95 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Papyrus Viewer</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jquery.zoom.min.js"></script>
+    <script src="index.js"></script>
+
+
+</head>
+
+<body>
+    <div id="headerContainer">
+        <h1>Papyrus Viewer</h1>
+        <div class="howtouse">
+            <p>Click and drag fragments to move them around. Double click on a fragment to flip it. Click on a fragment
+                to bring it to the front. Clicking on a fragment will also bring up a rotation icon, and clicking and
+                dragging that icon will rotate the fragment. Click the fragment again to remove the outline and rotation icon.</p>
+        </div>
+    </div>
+
+    <ul class="navbar">
+        <li class="navbar-item"><a href="index.html">Home</a></li>
+        <li class="navbar-item"><a href="generalcorpus.html">General Corpus</a></li>
+        <li class="navbar-item"><a href="timeline.html">Timeline</a></li>
+        <!-- <li class="navbar-item"><a href="aboutpapyrus.html">About Papyrus</a></li> -->
+    </ul>
+    <div id="content">
+
+        <div id="options">
+            <div id="selectorContainer">
+                <div id="documentSelectorContainer">
+                    <label for="documentSelector">Select document:</label>
+                    <select id="documentSelector"></select>
+                </div>
+                <div id="itemSelectorContainer">
+                    <label for="itemSelector">Select frame:</label>
+                    <select id="itemSelector"></select>
+                </div>
+            </div>
+            <div id="checkboxContainer">
+                <div id="enableAnimateContainer">
+                    <label for="enableAnimate">Animate fragment flip</label>
+                    <input type="checkbox" id="enableAnimate" checked>
+                </div>
+                <div id="showBackgroundContainer">
+                    <label for="showBackground">Show background</label>
+                    <input type="checkbox" id="showBackground" checked>
+                </div>
+            </div>
+            <div class="buttonContainer">
+                <button onclick="flipWhole()" id="flipWholeButton">See Back Side</button>
+                <button onclick="loadItem()" id="resetFragments">Reset</button>
+                <button id="toggleButton">Toggle Magnifier</button>
+            </div>
+            <div>
+                <label for="enhanceSelector">Enhance:</label>
+                <select id="enhanceSelector" style="width: 8em">
+                    <option value="negative">Invert</option>
+                    <option value="blue">Blue</option>
+                    <option value="vividness">+Vivid</option>
+                    <option value="neg_vividness">-Vivid</option>
+                    <option value="vivid_blue">+VividBlue</option>
+                    <option value="neg_vivid_blue">-VividBlue</option>
+                    <option value="retinex">+Retinex</option>
+                    <option value="neg_retinex">-Retinex</option>
+                    <option value="retinex_blue">+RetinexBlue</option>
+                    <option value="neg_retinex_blue">-RetinexBlue</option>
+                </select>
+                <button id="enhanceButton">Go</button>
+            </div>
+            <div id="metadata-fragment" style="font-size: 16px;">
+                <p>Text per fragment here</p>
+            </div>
+        </div>
+        <div id="imageContainer">
+        </div>
+    </div>
+    </script>
+</body>
+
+</html>
